@@ -126,36 +126,30 @@ class SDHCSVfilesSendMail:
         
         # Define file paths
         files = {
-            'car_park_kix' : 'F:\\Crowdworks\\ongoing\\vba_python\\second request\\20250723_car_park_kix.csv',
-            'retail_transaction' : 'F:\\Crowdworks\\ongoing\\vba_python\\second request\\20250723_retail_transactional.csv',
+            'retail_transaction': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_transactional_data\\{prefix}_retail_transactional.csv",
+            'retail_monthly': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_monthly\\SDH_KIX commercial data non-consolidated.xlsx",
+            'retail_shops': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_master\\retail_master.csv",
+            'krs_shops': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_master\\KRS_shop_master.xlsx",
+            'car_park_kix': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_kix\\{prefix}_car_park_kix.csv",
+            'car_park_itm': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_itm\\{prefix}_car_park_itm.csv",
+            'car_park_ukb': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_ukb\\{prefix}_car_park_ukb.csv",
+            'products_1': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_products\\products_master_1.csv",
+            'products_2': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_products\\products_master_2.csv",
+            'retail_daily': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_daily\\{prefix_year}_retail_daily.csv",
+            'retail_daily_prev': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_daily\\2024_retail_daily.csv"
         }
-        # files = {
-        #     'retail_transaction': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_transactional_data\\{prefix}_retail_transactional.csv",
-        #     'retail_monthly': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_monthly\\SDH_KIX commercial data non-consolidated.xlsx",
-        #     'retail_shops': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_master\\retail_master.csv",
-        #     'krs_shops': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_master\\KRS_shop_master.xlsx",
-        #     'car_park_kix': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_kix\\{prefix}_car_park_kix.csv",
-        #     'car_park_itm': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_itm\\{prefix}_car_park_itm.csv",
-        #     'car_park_ukb': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\car_park_ukb\\{prefix}_car_park_ukb.csv",
-        #     'products_1': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_products\\products_master_1.csv",
-        #     'products_2': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_products\\products_master_2.csv",
-        #     'retail_daily': f"C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_daily\\{prefix_year}_retail_daily.csv",
-        #     'retail_daily_prev': "C:\\Users\\commercial-data-cent\\OneDrive - 関西エアポートオペレーションズ\\Non-aero_data\\データ管理業務\\SDH_KAP_NonAero\\retail_daily\\2024_retail_daily.csv"
-        # }
         
         # Send emails with attachments
-        self.send_mail_with_attachment(files['car_park_kix'], f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}")
         self.send_mail_with_attachment(files['retail_transaction'], f"KAP_RETAIL_TRANSACTIONAL_{prefix_display}.csv", f"KAP_RETAIL_TRANSACTIONAL_{prefix_display}")
-        # self.send_mail_with_attachment(files['retail_transaction'], f"KAP_RETAIL_TRANSACTIONAL_{prefix_display}.csv", f"KAP_RETAIL_TRANSACTIONAL_{prefix_display}")
-        # self.send_mail_with_attachment(files['retail_monthly'], f"KAP_RETAIL_REVENUES_{prefix_display}.xlsx", f"KAP_RETAIL_REVENUES_{prefix_display}")
-        # self.send_mail_with_attachment(files['retail_shops'], f"KAP_RETAIL_SHOPS_{prefix_display}.csv", f"KAP_RETAIL_SHOPS_{prefix_display}")
-        # self.send_mail_with_attachment(files['krs_shops'], f"KAP-KIX_RETAIL_SHOPS_KRS_{prefix_display}.xlsx", f"KAP-KIX_RETAIL_SHOPS_KRS_{prefix_display}")
-        # self.send_mail_with_attachment(files['car_park_kix'], f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}")
-        # self.send_mail_with_attachment(files['car_park_itm'], f"KAP-ITM_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-ITM_CARPARKS_PAYMENTS_{prefix_display}")
-        # self.send_mail_with_attachment(files['car_park_ukb'], f"KAP-UKB_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-UKB_CARPARKS_PAYMENTS_{prefix_display}")
-        # self.send_mail_with_attachment(files['products_1'], f"KAP_RETAIL_PRODUCTS_1_{prefix_display}.csv", f"KAP_RETAIL_PRODUCTS_1_{prefix_display}")
-        # self.send_mail_with_attachment(files['products_2'], f"KAP_RETAIL_PRODUCTS_2_{prefix_display}.csv", f"KAP_RETAIL_PRODUCTS_2_{prefix_display}")
-        # self.send_mail_with_attachment(files['retail_daily'], f"KAP_RETAIL_WEEKLY_CONSOLIDATED_{prefix_display}.csv", f"KAP_RETAIL_WEEKLY_CONSOLIDATED_{prefix_display}")
+        self.send_mail_with_attachment(files['retail_monthly'], f"KAP_RETAIL_REVENUES_{prefix_display}.xlsx", f"KAP_RETAIL_REVENUES_{prefix_display}")
+        self.send_mail_with_attachment(files['retail_shops'], f"KAP_RETAIL_SHOPS_{prefix_display}.csv", f"KAP_RETAIL_SHOPS_{prefix_display}")
+        self.send_mail_with_attachment(files['krs_shops'], f"KAP-KIX_RETAIL_SHOPS_KRS_{prefix_display}.xlsx", f"KAP-KIX_RETAIL_SHOPS_KRS_{prefix_display}")
+        self.send_mail_with_attachment(files['car_park_kix'], f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-KIX_CARPARKS_PAYMENTS_{prefix_display}")
+        self.send_mail_with_attachment(files['car_park_itm'], f"KAP-ITM_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-ITM_CARPARKS_PAYMENTS_{prefix_display}")
+        self.send_mail_with_attachment(files['car_park_ukb'], f"KAP-UKB_CARPARKS_PAYMENTS_{prefix_display}.csv", f"KAP-UKB_CARPARKS_PAYMENTS_{prefix_display}")
+        self.send_mail_with_attachment(files['products_1'], f"KAP_RETAIL_PRODUCTS_1_{prefix_display}.csv", f"KAP_RETAIL_PRODUCTS_1_{prefix_display}")
+        self.send_mail_with_attachment(files['products_2'], f"KAP_RETAIL_PRODUCTS_2_{prefix_display}.csv", f"KAP_RETAIL_PRODUCTS_2_{prefix_display}")
+        self.send_mail_with_attachment(files['retail_daily'], f"KAP_RETAIL_WEEKLY_CONSOLIDATED_{prefix_display}.csv", f"KAP_RETAIL_WEEKLY_CONSOLIDATED_{prefix_display}")
         
         # Schedule next run if needed
         self.time_reschedule()
